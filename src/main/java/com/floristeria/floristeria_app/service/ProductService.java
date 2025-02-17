@@ -1,6 +1,7 @@
 package com.floristeria.floristeria_app.service;
 
 import com.floristeria.floristeria_app.entity.ProductEntity;
+import com.floristeria.floristeria_app.mapper.ProductMapper;
 import com.floristeria.floristeria_app.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,13 @@ import java.util.Optional;
 public class ProductService {
 
     @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
+    private final ProductMapper productMapper;
+
+    public ProductService(ProductRepository productRepository, ProductMapper productMapper) {
+        this.productRepository = productRepository;
+        this.productMapper = productMapper;
+    }
 
     public List<ProductEntity> getAllProducts() {
        return productRepository.findAll();
