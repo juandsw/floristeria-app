@@ -1,6 +1,6 @@
 package com.floristeria.floristeria_app.controller;
 
-import com.floristeria.floristeria_app.entity.ProductEntity;
+import com.floristeria.floristeria_app.application.secondaryports.entity.ProductEntity;
 import com.floristeria.floristeria_app.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

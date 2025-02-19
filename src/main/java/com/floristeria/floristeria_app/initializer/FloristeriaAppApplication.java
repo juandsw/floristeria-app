@@ -1,4 +1,4 @@
-package com.floristeria.floristeria_app;
+package com.floristeria.floristeria_app.initializer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
