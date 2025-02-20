@@ -4,32 +4,25 @@ import java.util.regex.Pattern;
 
 public class TextHelper {
 
-    public static final String Empty= "";
-    public static final String Underline= "_";
+    public static final String EMPTY= "";
     private static final Pattern Only_Letters_Pattern = Pattern.compile("^[a-zA-Z]+$");
 
     private TextHelper() {}
 
     public static boolean isNull(final String string){
-        return string == null;
-    }
-
-    public static boolean isEmptyorNull(final String string){
-        return Empty.equals(string) || isNull(string);
+        return ObjectHelper.isNull(string);
     }
 
     public static String getDefault(final String string, final String defaultValue) {
-        return isNull(string) ? defaultValue : string;
-    }
-
-    public static String getDefault(final String string){
-        return getDefault(string, Empty);
+        return ObjectHelper.getDefaultValue(string, defaultValue);
     }
 
     public static boolean isEmpty(final String string){
-        return Empty.equals(getDefault(string));
+        return EMPTY.equals(string);
     }
 
-
+    public static String applyTrim(final String string){
+        return string.trim();
+    }
 
 }

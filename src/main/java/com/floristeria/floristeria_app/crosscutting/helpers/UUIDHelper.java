@@ -18,4 +18,16 @@ public class UUIDHelper {
         return ObjectHelper.getDefaultValue(uuid, defaultUuid);
     }
 
+    public static String getDefaultAsString() {
+        return UUID_DEFAULT_VALUE;
+    }
+
+    public static UUID getDefault() {
+        return convertToUUID(UUID_DEFAULT_VALUE);
+    }
+
+    public static UUID generate(){
+        return UUID.randomUUID();
+    }
+
 }
