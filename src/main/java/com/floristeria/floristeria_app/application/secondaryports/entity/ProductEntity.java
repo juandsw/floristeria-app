@@ -27,10 +27,6 @@ public class ProductEntity {
     @Column(name = "category")
     private String category;
 
-    public UUID getId() {
-        return id;
-    }
-
     public ProductEntity() {
         setId(UUIDHelper.getDefault());
         setName(TextHelper.EMPTY);
@@ -55,13 +51,31 @@ public class ProductEntity {
         return new ProductEntity(id, name, description, price, category);
     }
 
-    public ProductEntity setId(UUID id) {
-        this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
-        return this;
+    public UUID getId() {
+        return id;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    //Setters
+
+    public ProductEntity setId(UUID id) {
+        this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
+        return this;
     }
 
     public ProductEntity setName(String name) {
@@ -69,8 +83,9 @@ public class ProductEntity {
         return this;
     }
 
-    public String getDescription() {
-        return description;
+    public ProductEntity setCategory(String category) {
+        this.category = TextHelper.applyTrim(category);
+        return this;
     }
 
     public ProductEntity setDescription(String description) {
@@ -78,21 +93,8 @@ public class ProductEntity {
         return this;
     }
 
-    public Double getPrice() {
-        return price;
-    }
-
     public ProductEntity setPrice(Double price) {
         this.price = NumericHelper.getDefaultValue(price);
-        return this;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public ProductEntity setCategory(String category) {
-        this.category = TextHelper.applyTrim(category);
         return this;
     }
 }
